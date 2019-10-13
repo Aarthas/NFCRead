@@ -67,6 +67,8 @@ public class NfcUtil {
 
         //nfc卡支持的格式
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+        if (tag == null)
+            return null;
         String[] temp = tag.getTechList();
         for (String s : temp) {
             Log.i(TAG, "resolveIntent tag: " + s);
